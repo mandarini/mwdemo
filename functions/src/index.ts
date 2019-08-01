@@ -7,10 +7,12 @@ const db = admin.firestore();
 export const sendNotifications = functions.firestore
   .document("messages/{messageID}")
   .onWrite((change, context) => {
+    console.log(change.after.data());
+    let message = change.after.data() ? change.after.data() : {};
     const payload = {
       notification: {
-        title: `Hello!`,
-        body: "Hello from this Demo",
+        title: `New msg from ${message ? message["user"] : "someone"}`,
+        body: `${message ? message["msg"] : "..."}`,
         click_action: `https://www.youtube.com/watch?v=dQw4w9WgXcQ`
       }
     };
