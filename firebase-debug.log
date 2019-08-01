@@ -1,0 +1,125 @@
+[debug] [2019-08-01T16:22:33.096Z] ----------------------------------------------------------------------
+[debug] [2019-08-01T16:22:33.098Z] Command:       /Users/katerinaskroumpelou/.nvm/versions/node/v10.15.3/bin/node /Users/katerinaskroumpelou/.nvm/versions/node/v10.15.3/bin/firebase deploy
+[debug] [2019-08-01T16:22:33.098Z] CLI Version:   7.1.1
+[debug] [2019-08-01T16:22:33.098Z] Platform:      darwin
+[debug] [2019-08-01T16:22:33.098Z] Node Version:  v10.15.3
+[debug] [2019-08-01T16:22:33.098Z] Time:          Thu Aug 01 2019 19:22:33 GMT+0300 (Eastern European Summer Time)
+[debug] [2019-08-01T16:22:33.098Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-08-01T16:22:33.104Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-08-01T16:22:33.104Z] > authorizing via signed-in user
+[debug] [2019-08-01T16:22:33.104Z] [iam] checking project modern-web-demo for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-08-01T16:22:33.105Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/modern-web-demo:testIamPermissions  
+
+[debug] [2019-08-01T16:22:34.243Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-01T16:22:34.246Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/modern-web-demo  
+ 
+[debug] [2019-08-01T16:22:34.890Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'modern-web-demo'...
+[info] 
+[info] i  deploying firestore, functions, hosting
+[info] Running command: npm --prefix "$RESOURCE_DIR" run build
+[info] ✔  functions: Finished running predeploy script.
+[info] i  firestore: checking firestore.rules for compilation errors...
+[info] i  firestore: reading indexes from firestore.indexes.json...
+[debug] [2019-08-01T16:22:38.805Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/modern-web-demo:test  
+
+[debug] [2019-08-01T16:22:39.810Z] <<< HTTP RESPONSE 200
+[info] ✔  firestore: rules file firestore.rules compiled successfully
+[debug] [2019-08-01T16:22:39.812Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "lint": "tslint --project tsconfig.json",
+    "build": "tsc",
+    "serve": "npm run build && firebase serve --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "8"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^8.0.0",
+    "firebase-functions": "^3.1.0"
+  },
+  "devDependencies": {
+    "tslint": "^5.12.0",
+    "typescript": "^3.2.2"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2019-08-01T16:22:39.813Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/modern-web-demo/services/cloudfunctions.googleapis.com  
+ 
+[debug] [2019-08-01T16:22:39.814Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/modern-web-demo/services/runtimeconfig.googleapis.com  
+ 
+[debug] [2019-08-01T16:22:41.017Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-01T16:22:41.087Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2019-08-01T16:22:41.087Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/modern-web-demo/adminSdkConfig  
+ 
+[debug] [2019-08-01T16:22:41.486Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-01T16:22:41.487Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/modern-web-demo/versions  
+
+[debug] [2019-08-01T16:22:43.151Z] <<< HTTP RESPONSE 200
+[info] i  firestore: uploading rules firestore.rules...
+[debug] [2019-08-01T16:22:43.153Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/modern-web-demo/rulesets  
+
+[debug] [2019-08-01T16:22:43.154Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1beta2/projects/modern-web-demo/databases/(default)/collectionGroups/-/indexes  
+ 
+[debug] [2019-08-01T16:22:43.769Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-01T16:22:43.770Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1beta2/projects/modern-web-demo/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false  
+ 
+[debug] [2019-08-01T16:22:44.229Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-01T16:22:44.229Z] [rules] created ruleset projects/modern-web-demo/rulesets/f6a9702e-89be-4164-ae42-967ecd589cc4
+[debug] [2019-08-01T16:22:44.243Z] <<< HTTP RESPONSE 200
+[info] ✔  firestore: deployed indexes in firestore.indexes.json successfully
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2019-08-01T16:22:44.245Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/modern-web-demo/configs  
+ 
+[debug] [2019-08-01T16:22:44.951Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (31.53 KB) for uploading
+[debug] [2019-08-01T16:22:45.139Z] >>> HTTP REQUEST POST https://cloudfunctions.googleapis.com/v1/projects/modern-web-demo/locations/us-central1/functions:generateUploadUrl  
+ 
+[debug] [2019-08-01T16:22:45.915Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-01T16:22:45.915Z] >>> HTTP REQUEST PUT https://storage.googleapis.com/gcf-upload-us-central1-70efff23-815e-467b-a240-205cefb816e7/f794e9a5-7c43-406a-87c8-c766fe901edf.zip?GoogleAccessId=service-780977893477@gcf-admin-robot.iam.gserviceaccount.com&Expires=1564678365&Signature=ba9R%2F4viRONf1DolJr%2BbeQ9yyY7OP4dHSz%2BEl27x04SDdJ%2B3njmyrPh6%2BNj4b5v80eiq4yWjRIiLLk7vpmk6FxjI%2FRvXw7v%2BVIkpzEuala%2FZRLTL0uzEX8vpySXy%2BxWIfo5vQCWfoiq%2B2cKClwS1NWrVQl%2FcJLSTtbftyIuKIEU%2BaMu4%2FmlHYzjzReQ%2FKQMWXNgQ4%2Fmya%2FIOtMagFwFC5BkTset9Y9fl6aLTdmWENoPnaOv3HnpGv5AJ493dIPMXQv6fSalw6%2B3qfjiJ3PGG2YSSZjoUJfFiey9rIrUBn8cl%2BClkCUf2PsI8qx8g0iqGPu0L0EqZjIHoIlVP2W%2FALA%3D%3D  
+ <request body omitted>
+[debug] [2019-08-01T16:22:46.899Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: functions folder uploaded successfully
+[info] i  hosting[modern-web-demo]: beginning deploy...
+[info] i  hosting[modern-web-demo]: found 13 files in dist/mwdemo
+[debug] [2019-08-01T16:22:46.907Z] [hosting] hash cache [ZGlzdC9td2RlbW8] load error: lines is not defined
+[debug] [2019-08-01T16:22:46.966Z] [hosting] hash cache [ZGlzdC9td2RlbW8] stored for 13 files
+[debug] [2019-08-01T16:22:46.966Z] [hosting][hash queue][FINAL]
+[debug] [2019-08-01T16:22:46.966Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/modern-web-demo/versions/c7f40c94dabd5b22:populateFiles  
+ <request body omitted>
+[debug] [2019-08-01T16:22:48.535Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-01T16:22:48.538Z] [hosting][populate queue][FINAL]
+[debug] [2019-08-01T16:22:48.538Z] [hosting] uploads queued: 3
+[debug] [2019-08-01T16:22:55.643Z] [hosting][upload queue][FINAL]
+[info] ✔  hosting[modern-web-demo]: file upload complete
+[debug] [2019-08-01T16:22:55.643Z] [hosting] deploy completed after 8743ms
+[debug] [2019-08-01T16:22:56.030Z] [rules] releasing cloud.firestore with ruleset projects/modern-web-demo/rulesets/f6a9702e-89be-4164-ae42-967ecd589cc4
+[debug] [2019-08-01T16:22:56.030Z] >>> HTTP REQUEST PATCH https://firebaserules.googleapis.com/v1/projects/modern-web-demo/releases/cloud.firestore  
+
+[debug] [2019-08-01T16:22:57.289Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-01T16:22:57.290Z] [rules] updated release projects/modern-web-demo/releases/cloud.firestore
+[info] ✔  firestore: released rules firestore.rules to cloud.firestore
+[debug] [2019-08-01T16:22:57.291Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/modern-web-demo/locations/-/functions  
+ 
+[debug] [2019-08-01T16:22:57.951Z] <<< HTTP RESPONSE 200
+[info] i  functions: updating Node.js 8 function sendNotifications(us-central1)...
+[debug] [2019-08-01T16:22:57.955Z] Trigger is:  {"eventTrigger":{"resource":"projects/modern-web-demo/databases/(default)/documents/messages/{messageID}","eventType":"providers/cloud.firestore/eventTypes/document.write","service":"firestore.googleapis.com"}}
+[debug] [2019-08-01T16:22:57.956Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/modern-web-demo/services/cloudscheduler.googleapis.com  
+ 
+[debug] [2019-08-01T16:22:59.033Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-01T16:22:59.035Z] >>> HTTP REQUEST PATCH https://cloudfunctions.googleapis.com/v1/projects/modern-web-demo/locations/us-central1/functions/sendNotifications {"updateMask":"sourceUploadUrl,name,labels,runtime,eventTrigger.resource,eventTrigger.eventType,eventTrigger.service"} 
+
+[debug] [2019-08-01T16:22:59.740Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-01T16:22:59.742Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/bW9kZXJuLXdlYi1kZW1vL3VzLWNlbnRyYWwxL3NlbmROb3RpZmljYXRpb25zL05vTHJPR1RIaENJ  
+ 
+[debug] [2019-08-01T16:23:00.175Z] <<< HTTP RESPONSE 200
