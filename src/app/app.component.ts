@@ -11,7 +11,7 @@ import * as firebase from "firebase/app";
 import "firebase/firestore";
 import { ChatService } from "./chat.service";
 import { Observable } from "rxjs";
-import { Message } from './message';
+import { Message } from "./message";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
     private msgService: ChatService
   ) {
     this.msgRef = db.collection<Message>("messages", ref =>
-      ref.orderBy("timestamp")
+      ref.orderBy("timestamp", "desc")
     );
   }
 
