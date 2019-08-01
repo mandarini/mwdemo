@@ -1,0 +1,18 @@
+<div
+  class="chat-msg"
+  [ngClass]="{
+    other: userAuth !== message.user,
+    own: userAuth === message.user
+  }"
+>
+  <p>
+    <small
+      ><span *ngIf="userAuth === message.user">me</span
+      ><span *ngIf="userAuth !== message.user">my love</span> -
+      <span *ngIf="message.timestamp">
+        {{ message.timestamp.seconds * 1000 | date: "medium" }}</span
+      ></small
+    >
+  </p>
+  <p>{{ message.msg }}</p>
+</div>

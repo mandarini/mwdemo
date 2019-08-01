@@ -1,0 +1,13 @@
+.full-container {
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.msg-container {
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  overflow-y: scroll;
+  height: 80vh;
+}
